@@ -20,7 +20,7 @@ class Category(models.Model):
        return f'/Category/{self.slug}/'
     
 class Product(models.Model):
-    Category = models.ForeignKey(Category,related_name='product', on_delete=models.CASCADE)
+    category = models.ForeignKey(Category,related_name='product', on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     slug = models.SlugField()
     description = models.TextField(blank=True, null=True)
@@ -35,7 +35,7 @@ class Product(models.Model):
     def __str__(self):
         return self.name
     def get_absolute_url(self):
-        return f'/{self.Category.slug}/Product/{self.slug}/'
+        return f'/{self.category.slug}/product/{self.slug}/'
     
     def get_image(self):
         if self.image:
