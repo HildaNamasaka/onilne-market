@@ -22,7 +22,7 @@
           </figure>
           <h3 class="is-size-4 has-text-centered">{{ product.name }}</h3>
           <p class="is-size-6 has-text-centered">ksh{{ product.price }}</p>
-          view details
+          <router-link v-bind:to="product.get_absolute_url" class="button is-dark mt-4">View Details</router-link>
         </div>
       </div>
     </div>
