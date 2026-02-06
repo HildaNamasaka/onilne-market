@@ -35,14 +35,22 @@ export default{
             quantity:1
         }
     },
-    mounted(){
-        this.getProduct()
-    },
+    mounted() {
+    console.log('PRODUCT VIEW LOADED')
+    this.getProduct()
+}
+,
     methods: {
-        getProduct(){
-            const category_slug = this.$route.params.category_slug
-            const product_slug = this.$route.params.product_slug
-        }
+    async getProduct() {
+        const category_slug = this.$route.params.category_slug
+        const product_slug = this.$route.params.product_slug
+
+        const response = await axios.get(
+            `/api/products/${category_slug}/${product_slug}/`
+        )
+        this.product = response.data
     }
+}
+
 }
 </script>
