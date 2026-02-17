@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'djoser',
     'product',
+    'django_filters',
 ]
 
 CORS_ALLOWED_ORIGINS = [
